@@ -1,0 +1,22 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+__ISSHORTER_H__	ishorter.h	2;"	d
+__SALES_ITEM_H__	sales_item.h	5;"	d
+avg_price	sales_item.h	/^double sales_item::avg_price(void) const$/;"	f	class:sales_item
+count_calls	count_call.c	/^size_t count_calls(void)$/;"	f
+count_calls	count_call.cpp	/^size_t count_calls(void)$/;"	f
+count_calls	count_call.s	/^count_calls:$/;"	l
+isShorter	ishorter.h	/^inline bool isShorter(const std::string &s1, const std::string &s2)$/;"	f
+isbn	sales_item.h	/^		std::string isbn;		\/* ISBN 				*\/$/;"	m	class:sales_item
+main	7_30.cpp	/^int main(int argc, char *argv[])$/;"	f
+main	count_call.c	/^int main(int argc, char *argv[])$/;"	f
+main	count_call.cpp	/^int main(int argc, char *argv[])$/;"	f
+main	count_call.s	/^main:$/;"	l
+revenue	sales_item.h	/^		double revenue;			\/* the total revenue from that book	*\/	$/;"	m	class:sales_item
+sales_item	sales_item.h	/^class sales_item {$/;"	c
+same_isbn	sales_item.h	/^		bool same_isbn(const sales_item &rhs) const	\/* inline function	*\/$/;"	f	class:sales_item
+units_sold	sales_item.h	/^		unsigned units_sold;		\/* the number of book sold		*\/$/;"	m	class:sales_item
