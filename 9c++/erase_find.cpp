@@ -21,8 +21,8 @@
 	using std::endl; using std::cerr;
 #include <vector>
 	using std::vector;
-#include <algorithm>
-	using std::find;
+//#include <algorithm>
+//	using std::find;
 #include <string>
 	using std::string;
 #include <list>
@@ -43,6 +43,20 @@ void show(T1 beg, T1 end)
 		else
 			cout << *beg++ << endl;
 	}
+}
+//////////////////////////////////////////////////////////////////////////////
+template<typename T1, typename T2>
+T1 find(T1 beg, T1 end, const T2 value)
+{
+	while (beg != end)
+	{
+		if (*beg == value)
+		{
+			break;
+		}
+		++beg;
+	}
+	return beg;
 }
 //////////////////////////////////////////////////////////////////////////////
 template<typename T1, typename T2>
