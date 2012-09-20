@@ -36,9 +36,11 @@ int main(int argc, const char *argv[])
 		if (*ilist_iter % 2 != 0)
 		{
 			ilist.erase(ilist_iter--);
+			cout << *ilist_iter << " ";
 		}
 		++ilist_iter;
 	}
+	cout << endl;
 	show(ilist.begin(), ilist.end());
 ////////////////////////////////////////////////////////////////////////////////////
 	
