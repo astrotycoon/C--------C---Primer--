@@ -39,6 +39,17 @@ int main(int argc, const char *argv[])
 //	slist = svec;	// error: the type of container is different
 	slist.assign(svec.begin(), svec.end()); 	// ok
 	show(slist.begin(), slist.end());
-		
+
+	vector<string> strvec(5, "hello");
+	show(strvec.begin(), strvec.end());
+//	strvec = svec;	// error: the type of container's element is different
+	strvec.assign(svec.begin(), svec.end()); 	// ok
+	show(strvec.begin(), strvec.end());
+
+	// equivalent to: strvec.clear();
+	// followed by strvec.insert(strvec.begin(), 10, "Hiya!");
+	strvec.assign(10, "Hiya!");
+	show(strvec.begin(), strvec.end()); 	// 10 elements; each one is Hiya!
+			
 	return 0;
 }
