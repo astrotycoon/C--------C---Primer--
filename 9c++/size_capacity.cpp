@@ -38,9 +38,23 @@ int main(int argc, const char *argv[])
 	     << " capacity: " << ivec.capacity() << endl;
 	
 	ivec.reserve(50); 	// sets capacity to at least 50; might be more
-	// size should be 24; capacity will be >= 50 and is implementation defined
+	// size should be 24; capacity will be >= 67 and is implementation defined
 	cout << "ivec.size: " << ivec.size()
 	     << " capacity: " << ivec.capacity() << endl;
 
+	// add elements to use up the excess capacity
+	while (ivec.size() != ivec.capacity())
+	{
+		ivec.push_back(0);
+	}
+	// size should be 50; capacity should be unchanged
+	cout << "ivec.size: " << ivec.size()
+	     << " capacity: " << ivec.capacity() << endl;
+
+	ivec.push_back(200);
+	// size should be 51; capacity should be >= 51	
+	cout << "ivec.size: " << ivec.size()
+	     << " capacity: " << ivec.capacity() << endl;
+	
 	return 0;
 }
