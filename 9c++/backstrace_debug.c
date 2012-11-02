@@ -69,4 +69,11 @@ int main(int argc, const char *argv[])
 	return 0;
 }
 
+Obtained 6 stack frames.nm
+./backstrace_debug(dump+0x45) [0x80487c9]
+[0x468400]
+./backstrace_debug(func_b+0x8) [0x804888c]
+./backstrace_debug(func_a+0x8) [0x8048896]
+./backstrace_debug(main+0x33) [0x80488cb]
+/lib/i386-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x129113]
 
