@@ -20,6 +20,11 @@
 #include <stddef.h>
 #include <execinfo.h>
 #include <signal.h>
+struct frame
+{
+	struct frame *next_frame;	/* old EBP */
+	void *retaddr;			/* old EIP */
+};
 
 void dump(int signo)
 {
@@ -46,6 +51,29 @@ void dump(int signo)
 	exit(0);
 }
 
+void dump_2(int signo)
+{
+	register struct frame *fp __asm__("%ebp");
+	struct frame *pframe = fp;
+	int i = 0;
+	void *buffer[6] = {0};
+	while (pframe)
+	{
+		if (i < 6)
+		{
+			buffer[i++] = pframe->retaddr;
+		}
+		pframe = pframe->next_frame;
+	}
+	
+	for (i = 0; i < 6; i++)
+	{
+		printf("%p\n", buffer[i]);
+	}
+	
+	exit(0);
+}
+
 void func_c()
 {
 	*((volatile char *)0x0) = 0x9999;
@@ -63,18 +91,9 @@ void func_a()
 
 int main(int argc, const char *argv[])
 {
-	if (signal(SIGSEGV, dump) == SIG_ERR)
+	if (signal(SIGSEGV, dump_2) == SIG_ERR)
 		perror("can't catch SIGSEGV");
 	func_a();
 	return 0;
 }
 
-/*  
-Obtained 6 stack frames.nm
-./backstrace_debug(dump+0x45) [0x80487c9]
-[0x468400]
-./backstrace_debug(func_b+0x8) [0x804888c]
-./backstrace_debug(func_a+0x8) [0x8048896]
-./backstrace_debug(main+0x33) [0x80488cb]
-/lib/i386-linux-gnu/libc.so.6(__libc_start_main+0xf3) [0x129113]
-*/
